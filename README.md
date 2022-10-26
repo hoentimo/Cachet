@@ -1,106 +1,76 @@
-# Cachet
+# Contribution Guidelines
 
-[![StyleCI](https://styleci.io/repos/26730195/shield)](https://styleci.io/repos/26730195/)
-[![Build Status](https://img.shields.io/travis/CachetHQ/Cachet/2.3.svg?style=flat-square)](https://travis-ci.org/CachetHQ/Cachet)
-[![Software License](https://img.shields.io/badge/license-BSD3-brightgreen.svg?style=flat-square)](LICENSE)
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/cachet/localized.svg)](http://translate.cachethq.io/project/cachet)
-[![Packagist](https://img.shields.io/packagist/v/cachethq/cachet.svg?style=flat-square)](https://packagist.org/packages/cachethq/cachet)
+## Creating issues
 
-![Screenshot](https://cachethq.io/img/main-interface.jpg)
+Feature requests and bug reports should be made by using the [issue tracker](https://github.com/cachethq/Cachet/issues). Support questions should be directed to our support email; [support@alt-three.com](mailto:support@alt-three.com?subject=Cachet Support).
 
-Cachet is a beautiful and powerful open source status page system.
+**Always be respectful.** Organization members reserve the right to lock topics if they feel necessary.
 
-## Features
+## Languages
 
-- List your services components
-- Log incidents
-- Apply custom CSS to the status page
-- Markdown support for incident messages
-- JSON API
-- Translated into eleven languages
-- Metrics
-- Cross-database support: MySQL, PostgreSQL and SQLite
-- Subscriber notifications via Email
-- Two factor authentication using Google Authenticator
+Any non-English translations must be made on the [Cachet CrowdIn](https://translate.cachethq.io) project. This makes syncing translations much easier.
 
-## Requirements
+## Coding Standards
 
-- PHP 5.5.9 - 7.1
-- Apache or Nginx server
-- [Composer](https://getcomposer.org)
+Please follow existing coding standards:
 
-## I'm looking to contribute to this awesome project!
+```php
+<?php
 
-Sweet, we're always looking for contributions that improve Cachet! It's easy to get started and you don't even need to know how to write a single line of code!
+namespace CachetHQ\Cachet\Controller;
 
-### Contributing as a non-developer/non-designer
+use CachetHQ\Cachet\Bar;
 
-We're always looking for new [translations](#translations).
+class Foo extends Bar
+{
+    public function baz()
+    {
+        if ($condition) {
+        }
+    }
+}
 
-Of course bug reports, feature requests and [documentation](https://docs.cachethq.io) are always appreciated.
+```
 
-### Contributing as a designer
+- At least one newline separating `namespace`, `use`, `function` and `class` declarations.
+- Spaces around operators, loops, conditions and control blocks:
+    ```php
+    <?php
+    use \Exception;
 
-As Cachet gains new features, the design and ideas that were once a perfect fit need updating and in some cases designing from scratch. This is where you come in! Fancy giving Cachet a lick of paint? Sweet!
+    if ($condition === (10 + 2)) {
+        try {
+            throw Exception("Something went wrong...");
+        } catch (Exception $e) {
+            // Do something here.
+        }
+    }
+    ```
+- Braces on a new line following: `namespace`, `use`, `function` and `class`.
+- PHP constants should be in lowercase; `true`, `false` and `null`.
+- Defined constants should always be in uppercase.
+- Never leave trailing spaces at the end of a line.
+- Files should end with one blank line.
+- Do not use `# Bash` style comments.
+- Always add or update Docblocs to functions.
+- We use [StyleCI](https://styleci.io) to automatically check code standards in Pull Requests. If your PR fails the CI check, then apply the supplied patch and re-push.
 
-You'll need to install Node.js, Bower and Gulp.
+If you're still unsure, then take a look at existing code.
 
-To get started you can do the following:
+## Introduction into Git and GitHub
 
-1. Install Node.js and our dev dependencies.
-2. Make your changes to the SCSS files in `./resources/assets/sass/`
-3. Run `gulp`
+If you are new to Git, GitHub and the whole open source software community, welcome! Here are some resources for getting started and understanding what it's all about.
 
-If you're making a lot of changes, you'll find that running `gulp watch` will make life easier for you!
+- [Try Git](https://try.github.io/levels/1/challenges/1) by Code School
+- [GitHub Help](https://help.github.com)
 
-### Contributing as a developer
+If you're not particularly fond of the command line, you can get one of GitHub's free GUI desktop apps:
 
-Built using [Laravel](https://laravel.com).
+- [GitHub for Mac](https://github.com/blog/1510-installing-git-from-github-for-mac)
+- [GitHub for Windows](https://github.com/blog/1127-github-for-windows)
 
-We use these extra dependencies to develop Cachet:
+If you're feeling adventurous, you can become a Git & GitHub master with the [Git Path on Code School](https://www.codeschool.com/paths/git).
 
-- Node.js
-- Gulp
-- Git
+## .editorconfig
 
-Once cloned to your local machine, you'll need some demo data! Run `php artisan cachet:seed` to get the demo installation ready for action.
-
-## Installation, Upgrades and Documentation
-
-Documentation is found at [https://docs.cachethq.io](https://docs.cachethq.io).
-
-Here are some useful quick links:
-
-- [Installing Cachet](https://docs.cachethq.io/docs/installing-cachet)
-- [Getting started with Docker](https://docs.cachethq.io/docs/get-started-with-docker)
-
-### Demo Account
-
-To test out the demo, you may login to the [Dashboard](https://demo.cachethq.io/dashboard) with the following:
-
-- **Username:** `test` or `test@test.com`
-- **Password:** `test123`
-
-The demo is reset every half hour.
-
-### Release Notes
-
-We list releases on the [Releases page](https://github.com/CachetHQ/Cachet/releases) of the [Cachet GitHub repository](https://github.com/CachetHQ/Cachet). On the Releases page, you can also find the release notes for each release.
-
-## Translations
-
-If you'd like to contribute translations, please check out our [CrowdIn project](https://crowdin.com/project/cachet).
-
-> Thank you to our [translators](https://crowdin.com/project/cachet/activity_stream), who have allowed us to share Cachet with the world!
-
-## Show your support
-
-Cachet is a BSD-3-licensed open source project.
-
-## Professional Installation Service
-
-We offer a professional installation service. To find out more, email us at [support@alt-three.com](mailto:support@alt-three.com?Cachet Installation)
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Cachet, please send an e-mail to us at support@alt-three.com. We handle all security vulnerabilities on a case-by-case basis.
+You should also make use of the [.editorconfig](/.editorconfig) file found within the root of the repository. It'll make sure that your editor is setup with the same file settings.
